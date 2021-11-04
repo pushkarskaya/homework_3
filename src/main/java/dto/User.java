@@ -1,12 +1,9 @@
 package dto;
-
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
-
 
 @Data
 @Builder
@@ -23,7 +20,5 @@ public class User {
     private String phone;
     private Long userStatus;
     private String username;
-
-
 
 }
