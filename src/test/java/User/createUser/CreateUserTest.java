@@ -30,7 +30,7 @@ public class CreateUserTest {
                 .log().all()
                 .statusCode(200)
                 .body("type", equalTo("unknown"))
-                .body("message", comparesEqualTo(203));
+                .body("message", comparesEqualTo("203"));
     }
 
     public void checkUserByName(String userName) { //Получение пользователя по имени
@@ -58,25 +58,25 @@ public class CreateUserTest {
         Assert.assertEquals("200", res.getCode().toString());
     }
 
-@Test
+    @Test
     public void checkCreateUserTime(){// Создание пользователя
-    User user = User.builder()                // Проверка, что время ответа сервера при создании
-            .userStatus(10l)                  // пользователя не превышает 4 мс
-            .email("kkk")
-            .id(203l)
-            .firstName("Ayyyyy")
-            .lastName("Woooo")
-            .password("password1")
-            .username("Varvara")
-            .phone("phone")
-            .build();
-            userApi.getUser(user)
-                    .then()
-                    .time(lessThan(4000L));
+        User user = User.builder()                // Проверка, что время ответа сервера при создании
+                .userStatus(10l)                  // пользователя не превышает 4 мс
+                .email("kkk")
+                .id(203l)
+                .firstName("Ayyyyy")
+                .lastName("Woooo")
+                .password("password1")
+                .username("Varvara")
+                .phone("phone")
+                .build();
+        userApi.getUser(user)
+                .then()
+                .time(lessThan(4000L));
 
-}
-@Test
-public void checkCreateUserSchema() {// Создание пользователя
+    }
+    @Test
+    public void checkCreateUserSchema() {// Создание пользователя
         User user = User.builder()                // Валидация ответа по json схеме
                 .userStatus(10l)                  // Проверка наличия обязательных полей ответа
                 .email("kkk")                     //Позитивный тест
@@ -132,7 +132,7 @@ public void checkCreateUserSchema() {// Создание пользовател�
     //Тесты на получение пользователя
     @Test
     public void testExistUser() { //Тест Получение пользователя по имени (пользователь есть в базе данных)
-        checkUserByName("user1");
+        checkUserByName("user");
     }
 
     @Test
